@@ -66,6 +66,7 @@ class TopBar extends React.Component {
 
           <Typography className="test" variant="h6" color="inherit">
             {addEventListener('hashchange', () => { this.contextChange() })}
+            {addEventListener('load', () => { this.contextChange() })}
           </Typography>
           
 
