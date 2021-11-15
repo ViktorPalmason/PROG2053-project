@@ -20,7 +20,6 @@ class UserList extends React.Component {
     this.state = {
       userList: window.cs142models.userListModel(),
     };
-
 }
 
   render() {
@@ -31,7 +30,7 @@ class UserList extends React.Component {
         </Typography>
         <List component="nav">
             {this.state.userList.map((user) => (
-            <ListItem  key={user._id} button="true" divider="true" component={Link} to={"/users/" + user._id}>
+            <ListItem  key={user._id} button={true} divider={true} component={Link} to={"/users/" + user._id}>
               <ListItemText primary={user.first_name + ' ' + user.last_name}/>
             </ListItem>
           ))}

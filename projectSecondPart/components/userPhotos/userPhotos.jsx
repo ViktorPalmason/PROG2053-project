@@ -22,27 +22,26 @@ class UserPhotos extends React.Component {
 
     return (
 
-      <Typography variant="body1">
+      <div>
       {photos.map((picture) => (
-        <Typography key={picture._id + picture.date_time}>
+        <div key={picture._id + picture.date_time}>
           <img className="img" key={picture._id} src={'images/' + picture.file_name} width="40%"/>
           <p key={picture.date_time} className="imgDate">Published: {picture.date_time}</p>
     
           {picture.comments ? picture.comments.map((test) => (
-            <Typography key={test.comment}>
-              <p className="box" ><Link to={"/users/" + test.user._id} className="link">{test.user.first_name} {test.user.last_name}</Link>
-              <p className="date">{test.date_time}</p> <p className="comment">{test.comment}</p> </p>
-              </Typography>
+            <div key={test.comment}>
+              <div className="box" ><Link to={"/users/" + test.user._id} className="link">{test.user.first_name} {test.user.last_name}</Link>
+              <p className="date">{test.date_time}</p> <p className="comment">{test.comment}</p> </div>
+              </div>
           )) : <p className="nocom">Picture has no comments</p>}
-          </Typography>
+          </div>
           
       ))}
-      </Typography>
+      </div>
 
     );
       
   }
 }
-
 
 export default UserPhotos;

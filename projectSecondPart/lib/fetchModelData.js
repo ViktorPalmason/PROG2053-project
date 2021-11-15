@@ -1,3 +1,4 @@
+
 var Promise = require("Promise");
 
 /**
@@ -15,12 +16,29 @@ var Promise = require("Promise");
 */
 
 function fetchModel(url) {
+
   return new Promise(function(resolve, reject) {
-      console.log(url);
-      setTimeout(() => reject({status: 501, statusText: "Not Implemented"}),0);
-      // On Success return:
-      // resolve({data: getResponseObject});
+      
+      var xhr = new XMLHttpRequest();
+
+      xhr.onreadystatechange = function() {
+        if (this.readyState != 4) {
+          return;
+        }
+
+        if (xhr.status >= 200 && xhr.status < 300) {
+          resolve({data: JSON.parse(xhr.responseText)});
+        } else {
+          setTimeout(() => reject({status: 501,statusText: xhr.statusText}),0);
+        }
+
+      };
+
+      xhr.open("GET",url);
+      xhr.send();
+
   });
+
 }
 
 export default fetchModel;

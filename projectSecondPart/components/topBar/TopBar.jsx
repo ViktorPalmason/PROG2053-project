@@ -12,6 +12,9 @@ import fetchModel from "../../lib/fetchModelData";
 class TopBar extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      version: ""
+    }
   }
 
 
@@ -20,6 +23,13 @@ class TopBar extends React.Component {
     fetchModel("http://localhost:3000/user/list");
     fetchModel("http://localhost:3000/user/57231f1a30e4351f4e9f4bd7");
     fetchModel("http://localhost:3000/photosOfUser/57231f1a30e4351f4e9f4bd7");
+
+    var user = fetchModel("http://localhost:3000/test/info");
+
+    console.log(user);
+ 
+
+
   }
 
   contextChange() {
