@@ -1,0 +1,12 @@
+
+    .button {
+        width:40%!important;
+        text-align: center !important;
+        background-color: #3f51b5 !important;
+        border-radius: 0.4vw !important;
+        color: white !important;
+    }
+
+    .icon {
+        min-width:auto !important;
+    }
