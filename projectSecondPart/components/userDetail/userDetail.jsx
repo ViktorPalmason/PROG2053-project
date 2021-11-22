@@ -20,38 +20,31 @@ class UserDetail extends React.Component {
       user: {},
     };
 
-    if (window.location.href.toString().includes("/users/")) {
-      var id = window.location.href.slice(46, 70);
-      var user = fetchModel("http://localhost:3000/user/" + id);
-      user.then((response) => {
-        this.setState({ user: response.data });
-      });
-    }
-
-    {
-      addEventListener("hashchange", () => {
-        this.contextChange();
-      });
-    }
+    this.componentDidMount();
+    this.componentDidUpdate(this.state.user._id);
   }
 
-  contextChange() {
-    console.clear();
-    if (this.state.user == this.state.user) {
-      console.log("the users are the same");
-      if (window.location.href.toString().includes("/users/")) {
-        var id = window.location.href.slice(46, 70);
-        var user = fetchModel("http://localhost:3000/user/" + id);
-        user.then((response) => {
-          this.setState({ user: response.data });
-        });
-      }
-      console.log(this.state.user);
-    } else {
-      console.log("The users are not the same");
-      console.log(this.state.user);
-    }
+    componentDidMount()
+  {
+    this.updateUser();
   }
+    
+  componentDidUpdate() { 
+    if (window.location.href.slice(46, 70) !== this.state.user._id) {this.updateUser(); }
+   }
+
+   updateUser = () => { 
+    var id = window.location.href.slice(46,71);
+    var userInfo = fetchModel("http://localhost:3000/user/" + id);
+
+    userInfo.then((response) => {
+      this.setState({user: response.data});
+    });
+
+  }
+
+    
+  
 
   render() {
     return (
