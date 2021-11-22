@@ -24,17 +24,6 @@ class UserPhotos extends React.Component {
     }
   }
 
-  // contextChange() {
-  //   if (window.location.href.toString().includes("/photos/")) {
-  //     var id = window.location.href.slice(47, 71);
-  //     var photoList = fetchModel("http://localhost:3000/photosOfUser/" + id);
-  //     photoList.then((response) => {
-  //       this.setState({ photoList: response.data });
-  //     });
-  //   }
-  //   console.log(this.state.photoList);
-  // }
-
   render() {
     return (
       <div>

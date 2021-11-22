@@ -37,13 +37,6 @@ class TopBar extends React.Component {
     }
   }
 
-  testFetch() {
-    fetchModel("http://localhost:3000/test/info");
-    fetchModel("http://localhost:3000/user/list");
-    fetchModel("http://localhost:3000/user/57231f1a30e4351f4e9f4bd7");
-    fetchModel("http://localhost:3000/photosOfUser/57231f1a30e4351f4e9f4bd7");
-  }
-
   contextChange() {
     var name;
     var id;
@@ -84,7 +77,7 @@ class TopBar extends React.Component {
         <Toolbar>
           <Grid container justify="space-between">
             <Typography variant="h5" color="inherit">
-              Flere personer...
+              Group 41
               <Typography>Version number: {this.state.version}</Typography>
             </Typography>
             <Typography
